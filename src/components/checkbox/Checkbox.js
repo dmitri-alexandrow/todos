@@ -1,9 +1,9 @@
 import './Checkbox.scss';
 
-export default function Checkbox({ className, id }) {
+export default function Checkbox({ className, id, onClick }) {
   return (
     <>
-      <input className={className ?? 'checkbox'} id={id} type="checkbox" />
+      <input className={className ?? 'checkbox'} onClick={onClick} type="checkbox" id={id} />
       <label className="checkbox__label" htmlFor={id}></label>
     </>
   )

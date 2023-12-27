@@ -1,0 +1,15 @@
+@import '../../styles/config.scss';
+
+.filter {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  &--horizontal {
+    display: flex;
+  }
+
+  &--horizontal &__item:not(:first-of-type) {
+    margin-left: 5px;
+  }
+}

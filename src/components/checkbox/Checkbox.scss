@@ -1,0 +1,25 @@
+@import '../../styles/config.scss';
+
+.checkbox {
+  appearance: none;
+  border: 2px solid $plain_text;
+  border-radius: 50%;
+
+  &:checked {
+    border-color: $primary_color;
+  }
+
+  &:checked+&__label {
+    visibility: visible;
+  }
+
+  &__label {
+    visibility: hidden;
+    position: absolute;
+    left: 10px;
+
+    &::before {
+      content: url('../../icons/ok.svg');
+    }
+  }
+}

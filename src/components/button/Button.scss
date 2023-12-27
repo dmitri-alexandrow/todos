@@ -1,0 +1,57 @@
+@import '../../styles/config.scss';
+
+.button {
+  font-size: 1rem;
+  border: 1px solid $primary_color;
+  background-color: #fff;
+  color: $secondary_color;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+
+  &:hover {
+    border-style: dashed;
+    border-color: $secondary_color;
+  }
+
+  &:active {
+    border-color: $accent_color;
+    color: #fff;
+    background-color: $accent_color;
+  }
+
+  &.active {
+    border-color: $monochrom;
+    color: #fff;
+    background-color: $monochrom;
+  }
+
+  &--close {
+    font-size: 2rem;
+    border: none;
+    background-color: unset;
+    color: $plain_text;
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
+
+    &:after {
+      content: "\00d7";
+    }
+  }
+
+  &--link {
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: $plain_text;
+    font-size: 1rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

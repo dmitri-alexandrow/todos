@@ -1,0 +1,24 @@
+@import '../../styles/config.scss';
+
+.input {
+  font-family: 'Montserrat';
+
+  &--text {
+    color: $primary_color;
+    border: $border-style;
+    border-radius: 5px;
+
+    &::placeholder {
+      color: $plain_text;
+    }
+
+    &:focus {
+      outline-color: $accent_color;
+    }
+
+    &:hover {
+      border-color: $secondary_color;
+      border-style: dashed;
+    }
+  }
+}

@@ -6,10 +6,21 @@
   padding: 0;
 
   &--horizontal {
-    display: flex;
+    @media (min-width:375px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width:767px) {
+      margin: 10px 0 5px;
+    }
   }
 
-  &--horizontal &__item:not(:first-of-type) {
-    margin-left: 5px;
+  &--horizontal &__item:not(:last-of-type) {
+    margin-bottom: 5px;
+
+    @media (min-width:375px) {
+      margin-right: 5px;
+    }
   }
 }

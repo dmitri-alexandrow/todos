@@ -4,7 +4,14 @@
 // Common styles
 html {
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
+
+  @media (max-width: 374px) {
+    font-size: 14px;
+  }
+
+  @media (min-width: 375px) {
+    font-size: 16px;
+  }
 }
 
 body {

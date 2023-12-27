@@ -1,10 +1,11 @@
 @import '../../styles/config.scss';
 
 .button {
-  font-size: 1rem;
+  font-size: 1.25rem;
   border: 1px solid $primary_color;
   background-color: #fff;
   color: $secondary_color;
+  outline: none;
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
@@ -26,6 +27,25 @@
     background-color: $monochrom;
   }
 
+  &--send {
+    border: 0;
+    background-color: unset;
+    color: $plain_text;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary_color;
+    }
+
+    &:active {
+      color: darken($color: $primary_color, $amount: 10%);
+    }
+
+    &::after {
+      content: "\276F";
+    }
+  }
+
   &--close {
     font-size: 2rem;
     border: none;
@@ -37,21 +57,50 @@
       color: red;
     }
 
-    &:after {
+    &:active {
+      color: darken($color: red, $amount: 10%);
+    }
+
+    &::after {
       content: "\00d7";
     }
   }
 
   &--link {
     font-family: 'Montserrat', sans-serif;
-    border: none;
+    border: 0;
     background-color: transparent;
     cursor: pointer;
     color: $plain_text;
-    font-size: 1rem;
+    font-size: 1.25rem;
 
     &:hover {
+      color: $primary_color;
       text-decoration: underline;
+    }
+
+    &:active {
+      color: darken($color: $primary_color, $amount: 10%);
+      text-decoration: none;
+    }
+  }
+
+  &--select {
+    border: 0;
+    background-color: unset;
+    color: $plain_text;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary_color;
+    }
+
+    &:active {
+      color: darken($color: $primary_color, $amount: 10%);
+    }
+
+    &::after {
+      content: "\276F";
     }
   }
 }

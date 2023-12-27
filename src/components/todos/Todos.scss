@@ -13,28 +13,54 @@
 
   &__heading {
     text-align: center;
-    margin: 0 0 1rem;
+    margin: 0 0 15px;
+  }
+
+  &__input-wrapper {
+    position: relative;
+    display: flex;
+  }
+
+  &__select-button, &__send-button {
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    font-size: 1.5rem;
+
+    &.active {
+      visibility: visible;
+    }
+  }
+  
+  &__select-button {
+    transform: translateY(-50%) rotate(90deg);
+    left: 10px;
+  }
+  
+  &__send-button {
+    transform: translateY(-55%);
+    right: 10px;
   }
 
   &__input {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    width: 100%;
     padding: 5px 35px;
   }
 
   &__footer {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px;
+
+    @media (min-width:768px) {
+      display: flex;
+    }
   }
 
   &__counter {
-    font-size: 1rem;
+    font-size: 1.25rem;
     color: $plain_text;
-  }
-
-  &__filter {
-    flex-basis: 34%;
   }
 
   &__button {
@@ -59,7 +85,6 @@
     position: relative;
     display: flex;
     align-items: center;
-    font-size: 24px;
     color: $secondary_color;
     padding: 10px 0;
     border-top: 1px solid $primary_color;
@@ -78,6 +103,12 @@
         text-decoration: line-through;
       }
     }
+
+    .button {
+      @media (max-width:374px) {
+        width: 100%;
+      }
+    }
   }
 
   &__checkbox {
@@ -93,6 +124,7 @@
   }
 
   &__task-text {
+    font-size: 1.5rem;
     margin: 0;
     padding: 0;
   }

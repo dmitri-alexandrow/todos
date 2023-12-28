@@ -17,13 +17,6 @@
       visibility: visible;
     }
 
-    &.completed {
-      .todos__task-text {
-        color: $plain_text;
-        text-decoration: line-through;
-      }
-    }
-
     .button {
       @media (max-width:374px) {
         width: 100%;
@@ -42,5 +35,30 @@
     font-size: 1.5rem;
     margin: 0;
     padding: 0;
+
+    &.completed {
+      color: $plain_text;
+      text-decoration: line-through;
+    }
+  }
+
+  &__item-edit {
+    font-size: 1.5rem;
+    width: 100%;
+    padding-right: 30px;
+  }
+
+  &__update-button {
+    position: absolute;
+    top: 50%;
+    font-size: 1.5rem;
+    transform: translateY(-55%);
+    right: 5px;
+  }
+
+  &__update-input-wrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
   }
 }

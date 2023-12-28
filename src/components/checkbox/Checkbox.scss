@@ -4,13 +4,10 @@
   appearance: none;
   border: 2px solid $plain_text;
   border-radius: 50%;
+  cursor: pointer;
 
   &:checked {
     border-color: $primary_color;
-  }
-
-  &:checked+&__label {
-    visibility: visible;
   }
 
   &__label {
@@ -20,6 +17,10 @@
 
     &::before {
       content: url('../../icons/ok.svg');
+    }
+
+    &.completed {
+      visibility: visible;
     }
   }
 }

@@ -6,7 +6,7 @@
   border-radius: 50%;
   cursor: pointer;
 
-  &:checked {
+  &.completed {
     border-color: $primary_color;
   }
 

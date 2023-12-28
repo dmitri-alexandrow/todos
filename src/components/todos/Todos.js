@@ -68,7 +68,11 @@ export default function Todos({ className, id }) {
   function toggleCompleteAllTasks() {
     // обновить статус всех задач (активны/завершены)
     const copy = [...tasks];
-    copy.map(task => task.isCompleted = !task.isCompleted);
+    if (tasks[0].isCompleted) {
+      copy.map(task => task.isCompleted = false);
+    } else {
+      copy.map(task => task.isCompleted = true);
+    }
     setTasks(copy);
   }
 

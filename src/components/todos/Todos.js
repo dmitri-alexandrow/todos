@@ -1,15 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../button/Button";
 import Filter from "../filter/Filter";
 import Heading from "../heading/Heading";
 import Input from "../input/Input";
 import TodoItem from "../todoItem/TodoItem";
 import { STORE } from "../../data";
+import { setToLocalStorage } from "../../utils";
 import './Todos.scss';
 
 export default function Todos({ className, id }) {
   const [text, setText] = useState('');
   const [tasks, setTasks] = useState(STORE);
+
+  useEffect(() => {
+    setToLocalStorage('taskList', tasks)
+  }, [tasks]);
 
   function createTask() {
     // создать новую задачу и обновить состояние
@@ -61,7 +66,11 @@ export default function Todos({ className, id }) {
   function toggleCompleteAllTasks() {
     // обновить статус всех задач (активны/завершены)
     const copy = [...tasks];
-    copy.map(task => task.isCompleted = !task.isCompleted);
+    if (tasks[0].isCompleted) {
+      copy.map(task => task.isCompleted = false);
+    } else {
+      copy.map(task => task.isCompleted = true);
+    }
     setTasks(copy);
   }
 
@@ -115,7 +124,10 @@ export default function Todos({ className, id }) {
 
       <footer className="todos__footer">
         <span className="todos__counter">Задач осталось {tasks.length - tasks.filter(task => task.isCompleted).length}</span>
-        <Filter className='filter filter--horizontal' onClick={filterTask} taskList={STORE} />
+        <Filter
+          className='filter filter--horizontal'
+          onClick={filterTask}
+          taskList={STORE} />
         <Button
           className={`todos__button button--link${tasks.filter(task => task.isCompleted).length ? ' active' : ''}`}
           onClick={removeCompletedTasks}>

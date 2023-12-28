@@ -1,0 +1,89 @@
+@import '../../styles/config.scss';
+
+.todos {
+  background-color: #fff;
+  box-shadow: $block_shadow;
+  border-radius: 5px;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  &__heading {
+    text-align: center;
+    margin: 0 0 15px;
+  }
+
+  &__input-wrapper {
+    position: relative;
+    display: flex;
+  }
+
+  &__select-button,
+  &__send-button {
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    font-size: 1.5rem;
+
+    &.active {
+      visibility: visible;
+    }
+  }
+
+  &__select-button {
+    transform: translateY(-50%) rotate(90deg);
+    left: 10px;
+  }
+
+  &__send-button {
+    transform: translateY(-55%);
+    right: 10px;
+  }
+
+  &__input {
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 5px 35px;
+  }
+
+  &__footer {
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+
+    @media (min-width:768px) {
+      display: flex;
+    }
+  }
+
+  &__counter {
+    font-size: 1.25rem;
+    color: $plain_text;
+  }
+
+  &__button {
+    display: none;
+
+    &.active {
+      display: inline;
+    }
+  }
+
+  &__main {
+    padding: 0 15px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__close-button {
+    visibility: hidden;
+    margin-left: auto;
+  }
+}

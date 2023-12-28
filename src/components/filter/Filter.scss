@@ -1,0 +1,26 @@
+@import '../../styles/config.scss';
+
+.filter {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  &--horizontal {
+    @media (min-width:375px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width:767px) {
+      margin: 10px 0 5px;
+    }
+  }
+
+  &--horizontal &__item:not(:last-of-type) {
+    margin-bottom: 5px;
+
+    @media (min-width:375px) {
+      margin-right: 5px;
+    }
+  }
+}

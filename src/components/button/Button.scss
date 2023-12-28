@@ -1,0 +1,106 @@
+@import '../../styles/config.scss';
+
+.button {
+  font-size: 1.25rem;
+  border: 1px solid $primary_color;
+  background-color: #fff;
+  color: $secondary_color;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+
+  &:hover {
+    border-style: dashed;
+    border-color: $secondary_color;
+  }
+
+  &:active {
+    border-color: $accent_color;
+    color: #fff;
+    background-color: $accent_color;
+  }
+
+  &.active {
+    border-color: $monochrom;
+    color: #fff;
+    background-color: $monochrom;
+  }
+
+  &--send {
+    border: 0;
+    background-color: unset;
+    color: $plain_text;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary_color;
+    }
+
+    &:active {
+      color: darken($color: $primary_color, $amount: 10%);
+    }
+
+    &::after {
+      content: "\276F";
+    }
+  }
+
+  &--close {
+    font-size: 2rem;
+    border: none;
+    background-color: unset;
+    color: $plain_text;
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
+
+    &:active {
+      color: darken($color: red, $amount: 10%);
+    }
+
+    &::after {
+      content: "\00d7";
+    }
+  }
+
+  &--link {
+    font-family: 'Montserrat', sans-serif;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    color: $plain_text;
+    font-size: 1.25rem;
+
+    &:hover {
+      color: $primary_color;
+      text-decoration: underline;
+    }
+
+    &:active {
+      color: darken($color: $primary_color, $amount: 10%);
+      text-decoration: none;
+    }
+  }
+
+  &--select {
+    border: 0;
+    background-color: unset;
+    color: $plain_text;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary_color;
+    }
+
+    &:active {
+      color: darken($color: $primary_color, $amount: 10%);
+    }
+
+    &::after {
+      content: "\276F";
+    }
+  }
+}

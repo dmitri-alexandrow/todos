@@ -8,8 +8,6 @@ import { STORE } from "../../data";
 import { setToLocalStorage } from "../../utils";
 import './Todos.scss';
 
-console.log(STORE);
-
 export default function Todos({ className, id }) {
   const [text, setText] = useState('');
   const [tasks, setTasks] = useState(STORE);
@@ -126,7 +124,10 @@ export default function Todos({ className, id }) {
 
       <footer className="todos__footer">
         <span className="todos__counter">Задач осталось {tasks.length - tasks.filter(task => task.isCompleted).length}</span>
-        <Filter className='filter filter--horizontal' onClick={filterTask} taskList={STORE} />
+        <Filter
+          className='filter filter--horizontal'
+          onClick={filterTask}
+          taskList={STORE} />
         <Button
           className={`todos__button button--link${tasks.filter(task => task.isCompleted).length ? ' active' : ''}`}
           onClick={removeCompletedTasks}>

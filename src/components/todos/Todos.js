@@ -1,15 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../button/Button";
 import Filter from "../filter/Filter";
 import Heading from "../heading/Heading";
 import Input from "../input/Input";
 import TodoItem from "../todoItem/TodoItem";
 import { STORE } from "../../data";
+import { setToLocalStorage } from "../../utils";
 import './Todos.scss';
+
+console.log(STORE);
 
 export default function Todos({ className, id }) {
   const [text, setText] = useState('');
   const [tasks, setTasks] = useState(STORE);
+
+  useEffect(() => {
+    setToLocalStorage('taskList', tasks)
+  }, [tasks]);
 
   function createTask() {
     // создать новую задачу и обновить состояние

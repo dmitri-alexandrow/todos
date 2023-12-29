@@ -4,13 +4,13 @@ import Filter from "../filter/Filter";
 import Heading from "../heading/Heading";
 import Input from "../input/Input";
 import TodoItem from "../todoItem/TodoItem";
-import { STORE } from "../../data";
+import { STORE, INITIAL_STORE } from "../../data";
 import { setToLocalStorage } from "../../utils";
 import './Todos.scss';
 
 export default function Todos({ className, id }) {
   const [text, setText] = useState('');
-  const [tasks, setTasks] = useState(STORE);
+  const [tasks, setTasks] = useState(STORE ?? INITIAL_STORE);
   const [filter, setFilter] = useState('');
 
   useEffect(() => {

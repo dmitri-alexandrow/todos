@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "../button/Button";
 import Filter from "../filter/Filter";
 import Heading from "../heading/Heading";
@@ -11,6 +11,7 @@ import './Todos.scss';
 export default function Todos({ className, id }) {
   const [text, setText] = useState('');
   const [tasks, setTasks] = useState(STORE);
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     setToLocalStorage('taskList', tasks)
@@ -74,8 +75,8 @@ export default function Todos({ className, id }) {
     setTasks(copy);
   }
 
-  function filterTask(taskList) {
-    setTasks(taskList);
+  function getFilter(className) {
+    setFilter(className);
   }
 
   return (
@@ -105,7 +106,7 @@ export default function Todos({ className, id }) {
       </header>
 
       <section className="todos__main">
-        <ul className="todos__list">
+        <ul className={`todos__list ${filter}`}>
           {
             tasks.map(task => {
               return <TodoItem
@@ -126,8 +127,8 @@ export default function Todos({ className, id }) {
         <span className="todos__counter">Задач осталось {tasks.length - tasks.filter(task => task.isCompleted).length}</span>
         <Filter
           className='filter filter--horizontal'
-          onClick={filterTask}
-          taskList={STORE} />
+          onClick={getFilter}
+        />
         <Button
           className={`todos__button button--link${tasks.filter(task => task.isCompleted).length ? ' active' : ''}`}
           onClick={removeCompletedTasks}>

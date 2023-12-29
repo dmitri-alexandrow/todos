@@ -2,8 +2,8 @@
 
 .todos {
   &__item {
-    position: relative;
     display: flex;
+    position: relative;
     align-items: center;
     color: $secondary_color;
     padding: 10px 0;

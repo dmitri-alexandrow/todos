@@ -80,6 +80,27 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
+
+    &.all {
+      .todos__item {
+        display: flex;
+      }
+    }
+
+    &.active {
+      .todos__item.completed {
+        display: none;
+      }
+    }
+
+    &.completed {
+      .todos__item {
+        display: none;
+      }
+      .todos__item.completed {
+        display: flex;
+      }
+    }
   }
 
   &__close-button {

@@ -24,7 +24,7 @@ export default function TodoItem({ children, removeTask, onCheckboxClick, isComp
   }
 
   return (
-    <li className={`todos__item`}>
+    <li className={`todos__item${isCompleted ? ' completed' : ''}`} >
 
       <Checkbox
         className='todos__checkbox checkbox'

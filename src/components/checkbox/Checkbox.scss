@@ -6,7 +6,7 @@
   border-radius: 50%;
   cursor: pointer;
 
-  &:checked {
+  &.completed {
     border-color: $primary_color;
   }
 
@@ -14,6 +14,7 @@
     visibility: hidden;
     position: absolute;
     left: 10px;
+    cursor: pointer;
 
     &::before {
       content: url('../../icons/ok.svg');

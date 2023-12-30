@@ -25,5 +25,16 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2"
+  },
+  "name": "todos",
+  "version": "1.0.0",
+  "description": "todos app",
+  "main": "index.js",
+  "repository": "https://dmitri-alexandrow@github.com/dmitri-alexandrow/todos.git",
+  "author": "DorfStil <dorfstil@gmail.com>",
+  "license": "MIT",
+  "private": false
 }

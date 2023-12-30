@@ -1,5 +1,5 @@
 import { useId, useState } from "react";
-import './TodoItem.scss';
+import "./TodoItem.scss";
 import Button from "../button/Button";
 import Checkbox from "../checkbox/Checkbox";
 import Input from "../input/Input";
@@ -24,7 +24,7 @@ export default function TodoItem({ children, removeTask, onCheckboxClick, isComp
   }
 
   return (
-    <li className={`todos__item${isCompleted ? ' completed' : ''}`} >
+    <li className={`todos__item${isCompleted ? " completed" : ""}`} >
 
       <Checkbox
         className='todos__checkbox checkbox'
@@ -37,7 +37,7 @@ export default function TodoItem({ children, removeTask, onCheckboxClick, isComp
           <Input
             className='input input--text todos__item-edit'
             onKeyPress={(event) => {
-              if (event.key == 'Enter') {
+              if (event.key == "Enter") {
                 toggleEditStatus();
                 if (!nextText) {
                   removeTask();
@@ -56,7 +56,7 @@ export default function TodoItem({ children, removeTask, onCheckboxClick, isComp
             id='todoSend'
             onClick={toggleEditStatus} />
         </div> :
-        <p className={`todos__task-text${isCompleted ? ' completed' : ''}`}
+        <p className={`todos__task-text${isCompleted ? " completed" : ""}`}
           onDoubleClick={() => {
             handleDoubleClick();
           }}>
@@ -68,5 +68,5 @@ export default function TodoItem({ children, removeTask, onCheckboxClick, isComp
         className="todos__close-button button--close"
         onClick={removeTask} />
     </li>
-  )
+  );
 }

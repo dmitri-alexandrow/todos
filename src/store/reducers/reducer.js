@@ -1,26 +1,10 @@
-import { initialState } from "../initialState";
+import { combineReducers } from "redux";
+import todosReducer from "./todosReducer";
+import filtersReducer from "./filtersReducer";
 
-function nextTodoId(todos) {
-  const maxId = todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1)
-  return maxId + 1
-}
+const rootReducer = combineReducers({
+  todos: todosReducer,
+  filters: filtersReducer
+});
 
-export default function appReducer(state = initialState, action) {
-  switch (action.type) {
-    case 'todos/createTodo': {
-      return {
-        ...state,
-        todos: [
-          ...state.todos,
-          {
-            id: nextTodoId(state.todos),
-            text: action.payload,
-            completed: false
-          }
-        ]
-      }
-    }
-    default:
-      return state
-  }
-}
+export default rootReducer;

@@ -1,41 +1,41 @@
-const create = text => {
+export const createTodo = text => {
   return {
-    type: 'todos/createTodo',
+    type: "todos/createTodo",
     payload: text
-  }
+  };
 };
 
-const remove = text => {
+export const removeTodo = text => {
   return {
-    type: 'todos/removeTodo',
+    type: "todos/removeTodo",
     payload: text
-  }
+  };
 };
 
-const update = text => {
+export const updateTodo = text => {
   return {
-    type: 'todos/updateTodo',
+    type: "todos/updateTodo",
     payload: text
-  }
+  };
 };
 
-const toggle = text => {
+export const toggleTodo = text => {
   return {
-    type: 'todos/toggleTodo',
+    type: "todos/toggleTodo",
     payload: text
-  }
+  };
 };
 
-const removeCompleted = text => {
+export const removeCompletedTodo = text => {
   return {
-    type: 'todos/removeCompletedTodo',
+    type: "todos/removeCompletedTodo",
     payload: text
-  }
+  };
 };
 
-const toggleAll = text => {
+export const toggleAllTodo = text => {
   return {
-    type: 'todos/toggleAllTodo',
+    type: "todos/toggleAllTodo",
     payload: text
-  }
+  };
 };

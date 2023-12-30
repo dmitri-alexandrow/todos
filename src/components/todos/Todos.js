@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../button/Button";
 import Filter from "../filter/Filter";
 import Heading from "../heading/Heading";
@@ -6,15 +6,15 @@ import Input from "../input/Input";
 import TodoItem from "../todoItem/TodoItem";
 import { STORE, INITIAL_STORE } from "../../data";
 import { setToLocalStorage } from "../../utils";
-import './Todos.scss';
+import "./Todos.scss";
 
 export default function Todos({ className, id }) {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const [tasks, setTasks] = useState(STORE ?? INITIAL_STORE);
-  const [filter, setFilter] = useState('');
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    setToLocalStorage('taskList', tasks)
+    setToLocalStorage("taskList", tasks);
   }, [tasks]);
 
   function createTask() {
@@ -30,7 +30,7 @@ export default function Todos({ className, id }) {
       ]);
     }
     // очистить поле ввода
-    setText('');
+    setText("");
   }
 
   function updateTask(id) {
@@ -39,14 +39,14 @@ export default function Todos({ className, id }) {
       const task = copy.find(task => task.id == id);
       task.text = updatedText;
       setTasks(copy);
-    }
+    };
   }
 
   function removeTask(id) {
     // удалить задачу, нажав на красный крестик
     setTasks(
       [...tasks].filter(task => task.id !== id)
-    )
+    );
   }
 
   function removeCompletedTasks() {
@@ -80,12 +80,12 @@ export default function Todos({ className, id }) {
   }
 
   return (
-    <section className={className ?? 'todos'} id={id}>
+    <section className={className ?? "todos"} id={id}>
 
       <header className="todos__header">
         <Heading className='todos__heading heading'>Todos</Heading>
         <div className="todos__input-wrapper">
-          <Button className={`todos__select-button button--select${tasks.length ? ' active' : ''}`} onClick={() => toggleCompleteAllTasks()} />
+          <Button className={`todos__select-button button--select${tasks.length ? " active" : ""}`} onClick={() => toggleCompleteAllTasks()} />
           <Input
             className='todos__input input input--text'
             type="text"
@@ -93,13 +93,13 @@ export default function Todos({ className, id }) {
             onInput={(event) => setText(event.target.value)}
             value={text}
             onKeyPress={(event) => {
-              if (event.key == 'Enter') {
+              if (event.key == "Enter") {
                 createTask();
               }
             }}
             id='todoInput' />
           <Button
-            className={`todos__send-button button--send${text ? ' active' : ''}`}
+            className={`todos__send-button button--send${text ? " active" : ""}`}
             id='todoSend'
             onClick={createTask} />
         </div>
@@ -130,12 +130,12 @@ export default function Todos({ className, id }) {
           onClick={getFilter}
         />
         <Button
-          className={`todos__button button--link${tasks.filter(task => task.isCompleted).length ? ' active' : ''}`}
+          className={`todos__button button--link${tasks.filter(task => task.isCompleted).length ? " active" : ""}`}
           onClick={removeCompletedTasks}>
           Очистить
         </Button>
       </footer>
 
     </section>
-  )
+  );
 }
